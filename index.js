@@ -18,13 +18,13 @@ app.post("/login", (req, res) => {
   const userPassword = req.body.password;
   console.log(req.body)
   if(!userEmail || !userPassword) {
-    res.status(400).json({status: "error", userEmail: userEmail, userPassword: userPassword});
+    res.status(500).json({status: "error", userEmail: userEmail, userPassword: userPassword});
   }else {
     const user = fakeDB.find(user => user.email === userEmail && user.password === userPassword);
     if (user) {
       res.status(200).json({status: "success", user: user});
     } else {
-      res.status(400).json({status: "email o password errati"});
+      res.status(500).json({status: "email o password errati"});
     }
   }
   // 2° step: confrontare i dati ricevuti 
