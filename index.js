@@ -1,11 +1,11 @@
-// import { fakeDB } from "./fake_database";
-
+//import { fakeDB } from "./fake_database";
+const {fakeDB} = require("./fake_database");
 const express = require("express");
 
 const app = express();
 const port = 3000;
 
-
+app.use(express.json());
 
 app.get("/backendStatus", (req, res) => {
   res.status(200).json({status: "success", version: "1.0"});
@@ -16,7 +16,7 @@ app.post("/login", (req, res) => {
   // 1° step: recuperare dati ricevuti dal front-end
   const userEmail = req.body.email;
   const userPassword = req.body.password;
-  console.log(req.requestOptions)
+  console.log(req.body)
   if(!userEmail || !userPassword) {
     res.status(400).json({status: "error", userEmail: userEmail, userPassword: userPassword});
   }else {

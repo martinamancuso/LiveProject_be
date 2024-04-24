@@ -1,4 +1,4 @@
-export const fakeDB = [
+const fakeDB = [
   {
     id: 1,
     name: "Martina",
@@ -22,4 +22,4 @@ export const fakeDB = [
   },
 ];
 
-
+module.exports={fakeDB}
